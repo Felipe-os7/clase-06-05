@@ -19,14 +19,39 @@ addStudentToTable(student);
  this.reset()
 
 });
-const tableBody=document.querySelector("#studentsTable tbody");
-function addStudentToTable(student){
-    const row= document.createElement("tr");
-    row.innerHTML=`
-    <td>${student.name}</td>
-    <td>${student.lastName}</td>
-    <td>${student.grade}</td>
-    <td>${student.date}</td>
-    `;
- tableBody.appendChild(row);
-}
+
+const promedioDiv=document.getElementById("promedio") 
+
+function calcularpromedio(){ 
+
+    const total=students.reduce((nota,student)=>nota+student.grade,0) 
+
+    const average=total/students.length 
+
+    promedioDiv.innerText=`El promedio del curso o estudiante es: ${average.toFixed(2)}`  
+
+} 
+
+/* 
+
+function calcularPromedio(){ 
+
+    let suma = 0; 
+
+    for (const student of students){ 
+
+    suma += student.grade; 
+
+} 
+
+    const count = students.length; 
+
+    const promedio = suma / count; 
+
+    console.log(promedio); 
+
+    averageDiv.textContent = "Promedio General del Curso :" +promedio; 
+
+  
+
+}*/ 
